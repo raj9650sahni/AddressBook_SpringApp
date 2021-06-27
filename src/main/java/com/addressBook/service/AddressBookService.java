@@ -3,50 +3,48 @@ package com.addressBook.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Id;
+import org.springframework.stereotype.Service;
 
 import com.addressBook.DTO.AddressBookDTO;
-import com.addressBook.DTO.ResponseDTO;
 import com.addressBook.model.AddressBookData;
 
+@Service
 public class AddressBookService implements IAddressBookService {
+	
+	private List<AddressBookData> addressBookList = new ArrayList<>();
 	
 	
 	@Override
 	public List<AddressBookData> getAddressBookData() {
-		List<AddressBookData> addressBookList = new ArrayList<AddressBookData>();
-		AddressBookData addressbookData = null;
-		addressbookData = new AddressBookData(1, new AddressBookDTO("Raj","K2-47"));
-		addressBookList.add(addressbookData);
 		return addressBookList;
 	
 	}
 
 	@Override
 	public AddressBookData getAddressBookDataById(int Id) {
-		AddressBookData addressbookData = null;
-		addressbookData = new AddressBookData(Id, new AddressBookDTO("Shivam","c-47"));
-		return addressbookData;
+		return addressBookList.get(Id -1 );
 	}
 
 	@Override
 	public AddressBookData createAddressBookData(AddressBookDTO addressBookDTO) {
 		AddressBookData addressBookData= null;
 		addressBookData = new AddressBookData(0, addressBookDTO);
+		addressBookList.add(addressBookData);
 		return addressBookData;
 	}
 
 	@Override
-	public AddressBookData updateAddressBookData(AddressBookDTO addressBookDTO) {
-		AddressBookData addressBookData= new AddressBookData(3,addressBookDTO);
-		
-		return addressBookData;
+	public AddressBookData updateAddressBookData( int Id,AddressBookDTO addressBookDTO) {
+		AddressBookData addressData = this.getAddressBookDataById(Id);
+		addressData.setName(addressBookDTO.name);
+		addressData.setAddress(addressBookDTO.address);
+		addressBookList.add(Id -1, addressData);
+		return addressData;
 	}
 
 	@Override
 	public void deleteAddressBookData(int Id) {
-		// TODO Auto-generated method stub
-		
+		addressBookList.remove(Id -1);
 	}
 
 }
