@@ -5,29 +5,38 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
 public class AddressBookDTO {
-	
+
 	@Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Name is Invalid")
 	@NotEmpty(message = "Name cannot be null ")
 	public String name;
-	
+
 	@Pattern(regexp = "^[A-Za-z,.0-9]{3,}$", message = "Address is Invalid")
 	@NotEmpty(message = "Address cannot be null")
 	public String address;
+
+	public String city;
+	public String state;
+	public Long zipcode;
 	
-	
-	public AddressBookDTO(String name, String address) {
+	@Pattern(regexp ="^[9][1][ ][6-9][0-9]{9}$", message = "PhoneNo is Invalid")
+	@NotEmpty(message = "PhoneNo cannot be null")
+	public String phoneNo;
+
+	public AddressBookDTO(String address, String city, String state, Long zipcode, String phoneNo, String name) {
 		super();
 		this.name = name;
 		this.address = address;
+		this.city = city;
+		this.state = state;
+		this.zipcode = zipcode;
+		this.phoneNo = phoneNo;
 	}
 	
 	
-	
-	
+
 	public String getName() {
 		return name;
 	}
-
 
 
 
@@ -37,11 +46,9 @@ public class AddressBookDTO {
 
 
 
-
 	public String getAddress() {
 		return address;
 	}
-
 
 
 
@@ -51,24 +58,61 @@ public class AddressBookDTO {
 
 
 
+	public String getCity() {
+		return city;
+	}
+
+
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+
+
+	public String getState() {
+		return state;
+	}
+
+
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+
+
+	public Long getZipcode() {
+		return zipcode;
+	}
+
+
+
+	public void setZipcode(Long zipcode) {
+		this.zipcode = zipcode;
+	}
+
+
+
+	public String getPhoneNo() {
+		return phoneNo;
+	}
+
+
+
+	public void setPhoneNo(String phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+
+
 
 	public String toString() {
-		return "AddressBook [  name: " + name + ", Address: " + address +  "]";
-	}
-	
+		return "AddressBook [ name: " + name + ", city: " + city + ", state: " +
+				  state+ ", zipcode: " + zipcode + ", phone No: " + phoneNo + ", Address: " +
+				  address + "]";
+				 	}
 
 }
 
 
-/*
- * return "AddressBook [ name: " + name + ", city: " + city + ", state: " +
- * state+ ", zipcode: " + zipcode + ", phone No: " + phoneNo + ", Address: " +
- * address + ", Emailid: " + emailId + "]";
- */
-
-
-
-/*
- * public String city; public String state; public Long zipcode; public long
- * phoneNo; public String emailId;
- */
+  
