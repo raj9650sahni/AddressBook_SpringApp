@@ -1,10 +1,26 @@
 package com.addressBook.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+
 import com.addressBook.DTO.AddressBookDTO;
 import com.addressBook.DTO.ResponseDTO;
 
-public class AddressBookData {
+import lombok.Data;
 
+
+@Data
+@Entity
+@Table(name = "address_book")
+
+public class AddressBookData {
+	
+	@javax.persistence.Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "addressbook_id")
 	private int Id;
 	private String name;
 
