@@ -38,7 +38,7 @@ public class AddressBookService implements IAddressBookService {
 		AddressBookData addressData = this.getAddressBookDataById(Id);
 		addressData.setName(addressBookDTO.name);
 		addressData.setAddress(addressBookDTO.address);
-		addressBookList.add(Id -1, addressData);
+		addressBookList.set(Id -1, addressData);
 		return addressData;
 	}
 
