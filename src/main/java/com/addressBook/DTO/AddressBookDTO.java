@@ -4,6 +4,13 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
+import lombok.Data;
+import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
+
+@Data
+@ToString
+@Slf4j
 public class AddressBookDTO {
 
 	@Pattern(regexp = "^[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Name is Invalid")
@@ -13,17 +20,17 @@ public class AddressBookDTO {
 	@Pattern(regexp = "^[A-Za-z,.0-9]{3,}$", message = "Address is Invalid")
 	@NotEmpty(message = "Address cannot be null")
 	public String address;
-	
+
 	@NotEmpty(message = "cannot be empty")
 	public String city;
-	
+
 	@NotEmpty(message = "cannot be empty")
 	public String state;
-	
+
 	@NotEmpty(message = "cannot be empty")
 	public Long zipcode;
-	
-	@Pattern(regexp ="^[9][1][ ][6-9][0-9]{9}$", message = "PhoneNo is Invalid")
+
+	@Pattern(regexp = "^[9][1][ ][6-9][0-9]{9}$", message = "PhoneNo is Invalid")
 	@NotEmpty(message = "PhoneNo cannot be null")
 	public String phoneNo;
 
@@ -36,88 +43,6 @@ public class AddressBookDTO {
 		this.zipcode = zipcode;
 		this.phoneNo = phoneNo;
 	}
-	
-	
 
-	public String getName() {
-		return name;
-	}
-
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-
-	public String getAddress() {
-		return address;
-	}
-
-
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-
-
-	public String getCity() {
-		return city;
-	}
-
-
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-
-
-	public String getState() {
-		return state;
-	}
-
-
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-
-
-	public Long getZipcode() {
-		return zipcode;
-	}
-
-
-
-	public void setZipcode(Long zipcode) {
-		this.zipcode = zipcode;
-	}
-
-
-
-	public String getPhoneNo() {
-		return phoneNo;
-	}
-
-
-
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
-	}
-
-
-
-	public String toString() {
-		return "AddressBook [ name: " + name + ", city: " + city + ", state: " +
-				  state+ ", zipcode: " + zipcode + ", phone No: " + phoneNo + ", Address: " +
-				  address + "]";
-				 	}
 
 }
-
-
-  

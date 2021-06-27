@@ -10,12 +10,13 @@ import com.addressBook.DTO.AddressBookDTO;
 import com.addressBook.DTO.ResponseDTO;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @Data
 @Entity
 @Table(name = "address_book")
-
+@NoArgsConstructor
 public class AddressBookData {
 	
 	@javax.persistence.Id
@@ -30,10 +31,9 @@ public class AddressBookData {
 	private String phoneNo;
 	private String address;
 
-	public AddressBookData(int Id, AddressBookDTO addressDTO) {
+	public AddressBookData( AddressBookDTO addressDTO) {
 
 		super();
-		this.Id = Id;
 		this.updateAddressBookData(addressDTO);
 	}
 	
@@ -50,74 +50,8 @@ public class AddressBookData {
 	}
 
 
-	public int getId() {
-		return Id;
-	}
+	
 
-
-	public void setId(int id) {
-		Id = id;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public String getCity() {
-		return city;
-	}
-
-
-	public void setCity(String city) {
-		this.city = city;
-	}
-
-
-	public String getState() {
-		return state;
-	}
-
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-
-	public Long getZipcode() {
-		return zipcode;
-	}
-
-
-	public void setZipcode(Long zipcode) {
-		this.zipcode = zipcode;
-	}
-
-
-	public String getPhoneNo() {
-		return phoneNo;
-	}
-
-
-	public void setPhoneNo(String phoneNo) {
-		this.phoneNo = phoneNo;
-	}
-
-
-	public String getAddress() {
-		return address;
-	}
-
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
 
 	
 	
