@@ -61,13 +61,14 @@ public class AddressBookController {
 	@PutMapping("/update/{Id}")
 	public ResponseEntity<ResponseDTO> updateAddressBookData(@PathVariable("Id") int Id,@RequestBody AddressBookDTO addressBookDTO) {
 		AddressBookData addressBookData = null;
-		addressBookData = addressBookService.updateAddressBookData(addressBookDTO);
+		addressBookData = addressBookService.updateAddressBookData(Id,addressBookDTO);
 		ResponseDTO responseDTO= new ResponseDTO("Put Call Success ", addressBookData);
 		return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
 			}
 	
 	@DeleteMapping("/delete/{d}")
 	public ResponseEntity<ResponseDTO> deleteAddressBookData(@PathVariable("Id") int Id) {
+		addressBookService.deleteAddressBookData(Id);
 		ResponseDTO responseDTO= new ResponseDTO("Delete call Succes",Id);
 		return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.OK);
 	}
