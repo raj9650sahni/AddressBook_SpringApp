@@ -16,22 +16,21 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @Slf4j
 public class AddressBookService implements IAddressBookService {
-	
 
 	@Autowired
 	private AddressBookRepositary addressbookRepositary;
-	
-	
+
 	@Override
 	public List<AddressBookData> getAddressBookData() {
 		return addressbookRepositary.findAll();
-	
+
 	}
 
 	@Override
 	public AddressBookData getAddressBookDataById(int Id) {
 		return addressbookRepositary.findById(Id).orElseThrow(
-				() -> new AddressBookException("AddressBook with address id : " + Id + " does not exists "));	}
+				() -> new AddressBookException("AddressBook with address id : " + Id + " does not exists "));
+	}
 
 	@Override
 	public AddressBookData createAddressBookData(AddressBookDTO addressBookDTO) {
@@ -42,7 +41,7 @@ public class AddressBookService implements IAddressBookService {
 	}
 
 	@Override
-	public AddressBookData updateAddressBookData( int Id,AddressBookDTO addressBookDTO) {
+	public AddressBookData updateAddressBookData(int Id, AddressBookDTO addressBookDTO) {
 		AddressBookData addressData = this.getAddressBookDataById(Id);
 		addressData.updateAddressBookData(addressBookDTO);
 		return addressbookRepositary.save(addressData);
@@ -51,6 +50,7 @@ public class AddressBookService implements IAddressBookService {
 	@Override
 	public void deleteAddressBookData(int Id) {
 		AddressBookData addressBookDataById = this.getAddressBookDataById(Id);
-		addressbookRepositary.delete(addressBookDataById);	}
+		addressbookRepositary.delete(addressBookDataById);
+	}
 
 }

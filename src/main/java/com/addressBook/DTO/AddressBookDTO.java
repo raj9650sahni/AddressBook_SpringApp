@@ -28,13 +28,13 @@ public class AddressBookDTO {
 	public String state;
 
 	@NotEmpty(message = "cannot be empty")
-	public Long zipcode;
+	public String zipcode;
 
 	@Pattern(regexp = "^[9][1][ ][6-9][0-9]{9}$", message = "PhoneNo is Invalid")
 	@NotEmpty(message = "PhoneNo cannot be null")
 	public String phoneNo;
 
-	public AddressBookDTO(String address, String city, String state, Long zipcode, String phoneNo, String name) {
+	public AddressBookDTO(String address, String city, String state, String zipcode, String phoneNo, String name) {
 		super();
 		this.name = name;
 		this.address = address;

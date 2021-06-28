@@ -12,13 +12,12 @@ import com.addressBook.DTO.ResponseDTO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
 @Entity
 @Table(name = "address_book")
 @NoArgsConstructor
 public class AddressBookData {
-	
+
 	@javax.persistence.Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "addressbook_id")
@@ -27,35 +26,25 @@ public class AddressBookData {
 
 	private String city;
 	private String state;
-	private Long zipcode;
+	private String zipcode;
 	private String phoneNo;
 	private String address;
 
-	public AddressBookData( AddressBookDTO addressDTO) {
+	public AddressBookData(AddressBookDTO addressDTO) {
 
 		super();
 		this.updateAddressBookData(addressDTO);
 	}
-	
-	
+
 	public void updateAddressBookData(AddressBookDTO addressBookDTO) {
-		
+
 		this.name = addressBookDTO.name;
 		this.city = addressBookDTO.city;
 		this.state = addressBookDTO.state;
 		this.zipcode = addressBookDTO.zipcode;
 		this.phoneNo = addressBookDTO.phoneNo;
 		this.address = addressBookDTO.address;
-		
+
 	}
-
-
-	
-
-
-	
-	
-	
-
 
 }
