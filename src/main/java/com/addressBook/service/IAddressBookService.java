@@ -6,7 +6,6 @@ import com.addressBook.DTO.AddressBookDTO;
 import com.addressBook.model.*;
 
 public interface IAddressBookService {
-	
 
 	List<AddressBookData> getAddressBookData();
 
@@ -14,7 +13,7 @@ public interface IAddressBookService {
 
 	AddressBookData createAddressBookData(AddressBookDTO addressBookDTO);
 
-	AddressBookData updateAddressBookData(int Id,AddressBookDTO addressBookDTO);
+	AddressBookData updateAddressBookData(int Id, AddressBookDTO addressBookDTO);
 
 	void deleteAddressBookData(int Id);
 
